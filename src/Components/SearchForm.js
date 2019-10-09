@@ -71,7 +71,7 @@ class SearchForm extends React.Component {
                     <strong>I want to translate to: </strong> { this.state.languageLists[this.state.toLang] }
                 </div>
                 <br></br>
-                <button tyle="submit" className="btn btn-primary btn-block">Çevir</button>
+                <button tyle="submit" className="btn btn-primary btn-block">Translate</button>
 
             </form>
         </div>
