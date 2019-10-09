@@ -1,26 +1,42 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import SearchForm from './Components/SearchForm'
+import History from './Components/History'
+import './App.css'
 
-function App() {
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state={
+      translatedText: "",
+      translatedHistory: []
+    }
+  }
+  passData(translatedText, translatedHistory){
+    this.setState({ translatedText })
+    this.setState({ translatedHistory: [...this.state.translatedHistory, translatedHistory]})
+  }
+  render() {
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+      <div className="container">
+          <h2 className="text-center"><strong>Online Translator</strong></h2>
+          <div className="row">
+            <div className="col-md-12 text-center">
+              <SearchForm passData={this.passData.bind(this)} />
+              <h3 className="text-success text-center">
+                {this.state.translatedText}
+              </h3>
+              {
+                this.state.translatedHistory.length > 0 && 
+                <History histories={this.state.translatedHistory} />
+              }
+            </div>
+          </div>
+      </div>
+  
   );
+}
 }
 
 export default App;
