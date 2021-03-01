@@ -1,8 +1,5 @@
 ## Simple translate project made with React using Yandex Translate API 
 
-## Live: https://gifted-wescoff-6884b9.netlify.com/
-
-or
 
 ## Live: http://ahmetsezen.com/translate/
 
